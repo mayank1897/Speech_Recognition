@@ -72,16 +72,16 @@ def send_mail(to,content):
     # server=smtplib.SMTP_SSL("smtp.gmail.com",465)
     server.ehlo()
     server.starttls() # secured connection
-    server.login("macrobell.service@gmail.com",new_file.read())
+    server.login("abc@gmail.com",new_file.read())
     new_file.close()
-    server.sendmail("macrobell.service@gmail.com",to,content)
+    server.sendmail("abc@gmail.com",to,content)
     server.close()
 
 receivers_dict={
-    "mayank":"mayankmystery18@gmail.com",
-    "rocco":"18excaliber1997@gmail.com",
+    "mayank":"mayank24@gmail.com",
+    "rocco":"rocco2318@gmail.com",
     "amazon":"support@amazon.com",
-    "hdfc bank":"support@hdfcbank.com",
+    "icici bank":"support@icicibank.com",
     "myntra":"support@myntra.com"
 }
 
