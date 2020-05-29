@@ -64,7 +64,7 @@ def take_command():
         return "None"
     
 
-def send_mail(to,content):
+def send_mail(to,sub,content):
     new_file=open(r"E:\mayankvscode\projects\ps.txt")
     # 1- unsecured connection
     server=smtplib.SMTP("smtp.gmail.com",587)
@@ -74,7 +74,7 @@ def send_mail(to,content):
     server.starttls() # secured connection
     server.login("abc@gmail.com",new_file.read())
     new_file.close()
-    server.sendmail("abc@gmail.com",to,content)
+    server.sendmail("abc@gmail.com",to,f"subject: {sub}\n\n{content}")
     server.close()
 
 receivers_dict={
@@ -234,10 +234,12 @@ if (__name__=="__main__"):
             speak("to whome i will send the mail")
             receiver=take_command().lower()
             to=receivers_dict.get(receiver)
+            speak("mail subject")
+            sub=take_command().lower()
             speak("what should i speak")
             content=take_command()
             try:
-                send_mail(to,content)
+                send_mail(to,sub,content)
                 speak("mail sent successfully")
             except:
                 speak("failed to sent mail")
