@@ -211,6 +211,7 @@ if (__name__=="__main__"):
         elif ("play music" in enquiry):
             music_path=r"E:\mayank\music"
             music_files=os.listdir(music_path)
+            music_files=random.shuffle(music_files)
             music_files_path=os.path.join(music_path,random.choice(music_files))
             os.startfile(music_files_path)
 
